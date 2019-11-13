@@ -10,16 +10,29 @@ attr_reader :hidden_word
   end
 
   def array_to_star()
-    my_array = @hidden_word.hidden_word_to_array()
-    for letter in @hidden_word
-      letter = "*"
+    hidden_array = []
+    my_array = hidden_word_to_array()
+    for letter in my_array
+      hidden_array.push("*")
+    end
+    return hidden_array
+  end
+
+  def display_hidden()
+  word = array_to_star()
+  word.join()
+  end
+
+  def letter_guess()
+    guess = @game.select_last_guess
+    array = hidden_word_to_array
+    for letter in array
+      if letter == guess
+        return true
+      end
+    return false
     end
   end
 
-  # def display_hidden()
-  #   for letter in @hidden_word
-  #     return "*"
-  #   end
-  # end
 
 end
